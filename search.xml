@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>云原生初探</title>
-    <url>/post/f3e182a8.html</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>云原生</tag>
-      </tags>
+    <title>hello</title>
+    <url>/post/3610a686.html</url>
+    <content><![CDATA[<div align=center>
+    <img src=https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/mgt_wechat.jpg width=30%></img>
+</div>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">a:</span> <span class="string">b</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>大学本科经验分享</title>
@@ -51,6 +52,14 @@
 </div>]]></content>
       <tags>
         <tag>经验分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>云原生初探</title>
+    <url>/post/f3e182a8.html</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>云原生</tag>
       </tags>
   </entry>
 </search>
