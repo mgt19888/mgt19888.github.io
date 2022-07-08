@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Hello World</title>
-    <url>/post/4a17b156.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>云原生初探</title>
+      <link href="/post/f3e182a8.html"/>
+      <url>/post/f3e182a8.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 云原生 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大学本科经验分享</title>
+      <link href="/post/3610a686.html"/>
+      <url>/post/3610a686.html</url>
+      
+        <content type="html"><![CDATA[<h1>个人档案</h1><div align=center>    <img src=https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/大学本科经验分享_1.png width=70%></img></div><h1>打卡笔记六 “不” 走</h1><h2 id="六边形战士-人生“不”设限">六边形战士,人生“不”设限</h2><p>​大学以来，我除了做好专业学习和科研竞赛外，还<ins>积极参与到社会实践和学生工作中</ins>。身处大学这样一个充满机遇的平台，我们不能让自己仅仅局限在学习能力和科研能力的提高上。参与社会实践、学生工作能够<ins>认识到比自己优秀的同学，与优秀的同学为伍，自己也会变得更优秀。</ins></p><div align=center>    <img src=https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/大学本科经验分享_2.png width=80%></img></div><h2 id="生活“不”abandon-英语学习很重要">生活“不”abandon,英语学习很重要</h2><p>​在高校夏令营或预推免中，大部分双一流高校都要求通过六级，有些高校还会对六级成绩进行规定。如果没有过六级，很多高校的简历初筛都过不了。在保研面试中，也会有英文问答、英文自我介绍环节，这一部分的分数通常占比15%-40%。你的六级成绩越高分，在保研面试中就有越大的优势。</p><h2 id="勇者“不”退缩-不服就比比">勇者“不”退缩,不服就比比</h2><p>​我一直都鼓励我的师弟师妹们++多参加比赛，因为比赛的过程中，我们会对专业知识有更深刻的理解，从而更快掌握专业知识。++对于工科生来说，可参加的比赛是相当多的，数学建模、数学竞赛、程序设计大赛、计算机设计大赛、互联网+、挑战杯等都值得参加。</p><p>​在大一，我跟很多同学一样，会因为害怕当“分母”而不敢参赛。后来，我在老师和师兄师姐的鼓励下，大胆迈出第一步。刚开始参赛时，我基本拿不到奖项，但我依然不放弃，继续在参赛路上砥砺前行。不过比起结果，我<ins>更享受参赛过程中自己点滴的进步</ins>。因为参加了比较多的比赛，我学到了很多新知识，能力也有所提高，拥有了夯实的学科基础。</p><p>​而在今年的互联网+大赛中，申报的两个赛道都取得了全国总决赛银奖的成绩，正所谓 “故不积跬步，无以至千里；不积小流，无以成江海。” 因此，我觉得参加创新创业比赛对我大学生涯的影响可以有以下几点：</p><p>​<strong>（1）个人能力的提升。</strong> 如果仅仅是听课，创新创业思维是很难锻炼的，只有去真正的实践，在实践中遇到问题并解决问题，才能慢慢形成创新创业思维。而创新创业比赛便是最好的实践平台，在比赛中能够促进自己去自学新知识，开阔视野，将所学的专业知识运用于实践。如果作品足够优秀，还能够得到主办方一定的支持。也正是因为参加这些比赛，我的自学能力、动手实践能力、组织能力、沟通能力等等都得到一定的提高。</p><p>​<strong>（2）认识到更多优秀的人。</strong> 创新创业比赛基本都是团体性的比赛，需要与其他同学合作，在这期间也能够认识到更多志同道合、优秀的同学，与优秀的同学为伍，自己也会变得更优秀。</p><p>​<strong>（3）助力深造和就业。</strong> 通过参加创新创业比赛，在得到锻炼的同时，也能收获相应的奖项和荣誉，这些奖项能够证明自己的能力，在考研、保研或者是就业面试中都能够起到一些作用。</p><h2 id="学习步履“不”停-一“研”为定">学习步履“不”停,一“研”为定</h2><p>​在本科阶段真正地参与一些科研项目，可以帮你<ins>认清实际的科研是怎样的，能够让你认识到自己是否适合读研</ins>。同时，科研项目也能够将所学的知识最大程度地串起来，帮助自己<ins>找到感兴趣的研究方向，从而进行更深入的研究学习</ins>。除此之外，科研项目也能够丰富自己的简历，让你在就业或考研、保研面试有更多的优势。</p><div align=center>    <img src=https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/大学本科经验分享_3.png width=80%></img></div><h2 id="“不”拖延-打卡少年有妙招">“不”拖延,打卡少年有妙招</h2><p>​学习和竞赛本身是不冲突的事情，学习专业知识能够在参赛时有更多理论支撑，参加竞赛能够让自己学以致用，加深对知识的理解与掌握。</p><p>​关于时间管理，首先我是将时间分为三大部分，分别是寒暑假、每个学期的前半个学期、每个学期的后半个学期，寒暑假我主要参与科研项目、参加社会实践活动，每个学期的前半个学期主要是参与学生工作、参加比赛、做好学期规划，每个学期的后半个学期主要是学习专业知识、打牢专业基础。当然并不是每一个阶段只做这些事情，而是这些事情在相应阶段是主要的安排。我认为在每个阶段有侧重点去学习或工作，才能达到较高的效率。除此之外，每天晚上睡前我都会把第二天做的事情在手机备忘录上列出来，我不会做详细的计划（像哪个时间段做哪些事情），详细的计划会让我觉得很难执行，所以都是只列出要做的事情而不规定时间段，每完成一件事情就在备忘录左边打勾，这样也比较有成就感，能够让自己每天都过得很充实，并且很少有不知道做什么或者发呆的时候。</p><div align=center>    <img src=https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/大学本科经验分享_4.png width=40%></img></div><h2 id="“不”忘初心-走向星辰大海">“不”忘初心,走向星辰大海</h2><p>​保研是我大一就树立的目标，在过去的三年里，我一直在为这个目标而奋斗。虽然过程中遇到很多挫折，也曾让我怀疑过自己，但在身边朋友、老师和家人的帮助下，在不断尝试下，最终达成目标。</p><p>​我建议在读大学的你们尽早确定方向，朝着自己的目标扬帆起航。当然，保研对绩点和科研竞赛有较高的要求。如果你选择了保研，就代表你将走上一条竞争激烈的道路。在走向成功的路上，不要因为小挫折而失去信心，要勇于抓住眼前的每一个机会。同时，也要善于总结与反思自己每个阶段所做的事情，并不断为自己树立小目标。</p><div align=center>热血燃烧 青春闪耀</br>未来在即 梦想可期</br>愿大家都能实现自己的梦想！</br></div>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 经验分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
