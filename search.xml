@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>《Easy RL:强化学习教程》读书笔记05</title>
+      <link href="/post/17295ed.html"/>
+      <url>/post/17295ed.html</url>
+      
+        <content type="html"><![CDATA[<h1>DDPG的改进</h1><p>虽然 DDPG 有时表现很好，但它对于超参数和其他类型的调整方面经常很敏感。DDPG 常见的问题是已经学习好的 Q 函数开始显著地高估 Q 值，然后导致策略被破坏，因为它利用了 Q 函数中的误差  。我们可以使用实际的 Q 值与 Q 网络输出的 Q 值进行对比。实际的 Q 值可以用蒙特卡洛来算。根据当前的策略采样 1000 条轨迹，得到 G 后取平均值，进而得到实际的 Q 值。</p><p>双延迟深度确定性策略梯度（twin delayed DDPG， TD3） 通过引入 3 个关键技巧来解决这个问题。</p><ul class="lvl-0"><li class="lvl-2"><p>截断的双 Q 学习（clipped dobule Q-learning）。 TD3 学习两个 Q 函数（因此名字中有“twin”）。TD3 通过最小化均方差来同时学习两个 Q 函数。两个 Q 函数都使用一个目标。</p></li><li class="lvl-2"><p>延迟的策略更新（delayed policy updates） 。相关实验结果表明，同步训练动作网络和评价网络，却不使用目标网络，会导致训练过程不稳定；但是仅固定动作网络时，评价网络往往能够收敛到正确的结果。因此 TD3 算法以较低的频率更新动作网络，以较高的频率更新评价网络，通常每更新两次评价网络就更新一次策略。</p></li><li class="lvl-2"><p>目标策略平滑（target policy smoothing）。 TD3 引入了平滑化（smoothing）思想。 TD3 在目标动作中加入噪声，通过平滑 Q 沿动作的变化，使策略更难利用 Q 函数的误差。</p></li></ul><p>这 3 个技巧加在一起，使得性能相比基线 DDPG 有了大幅的提升。</p><blockquote><p>第十章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords</a></p><p>第十一章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords</a></p><p>第十二章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords</a></p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《Easy RL:强化学习教程》读书笔记04</title>
       <link href="/post/7675a57b.html"/>
       <url>/post/7675a57b.html</url>
