@@ -150,8 +150,8 @@
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'yibangcms-9gmaasbqafb8caf5',
-      region: 'ap-guangzhou',
+      envId: 'mgt-comment-7gmvm7n0d1b4afe3',
+      region: 'ap-shanghai',
       onCommentLoaded: () => {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
       }
@@ -167,8 +167,8 @@
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'yibangcms-9gmaasbqafb8caf5',
-      region: 'ap-guangzhou',
+      envId: 'mgt-comment-7gmvm7n0d1b4afe3',
+      region: 'ap-shanghai',
       urls: [window.location.pathname],
       includeReply: false
     }).then(res => {
