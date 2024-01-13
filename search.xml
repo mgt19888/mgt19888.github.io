@@ -1,67 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>《Easy RL:强化学习教程》读书笔记01</title>
-    <url>/post/61f51f4.html</url>
-    <content><![CDATA[<h1>强化学习概述</h1>
-<p>强化学习由<ins>智能体（agent）<ins>和</ins>环境（environment）<ins>组成，智能体得到环境中的</ins>状态（state）<ins>后，将根据状态输出一个</ins>动作（action）</ins>，这个动作也是<ins>决策（decision）</ins>，这个动作会在环境中被执行后输出状态和<ins>奖励（reward</ins>），智能体的目标是最大化所获得的奖励。</p>
-<h2 id="强化学习和监督学习的区别">强化学习和监督学习的区别</h2>
-<p>1、强化学习输入的样本是序列数据，监督学习的样本的独立同分布的。</p>
-<p>2、强化学习只能通过不停地尝试去做出最有利的动作，而监督学习是有人类知识引导的。</p>
-<p>3、<ins>探索（exploration）<ins>和</ins>利用（exploitation）<ins>是强化学习里面非常核心的问题，<ins>探索</ins>是尝试新动作以获得更高的奖励，但有一定的风险，而</ins>利用</ins>是采取已知的可获最大奖励的动作，所以需要在<ins>探索</ins>和<ins>利用</ins>间进行权衡，这是监督学习中没有的。</p>
-<p>4、强化学习中的奖励一般是延迟的，而监督学习是即时的监督。</p>
-<h2 id="标准强化学习和深度强化学习的区别">标准强化学习和深度强化学习的区别</h2>
-<p><ins>标准强化学习</ins>需要设计特征、进行特征工程并设计价值函数，而<ins>深度强化学习</ins>是一个端到端的训练过程，可直接通过神经网络来拟合价值函数或策略网络。</p>
-<p><img src="https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/image-20220816210507041.png" alt="image-20220816210507041"></p>
-<h2 id="状态和观测的区别">状态和观测的区别</h2>
-<p><ins>状态</ins>是对世界的完整描述，不会隐藏世界的信息。<ins>观测</ins>是对状态的部分描述，可能会遗漏一些信</p>
-<p>息。如果状态和观察等价，则该环境是完全可观测的（fully observed），这种情况也被称为<ins>马尔可夫决策过程（Markov decision process，MDP）</ins>。当智能体只能看到部分的观测时，我们就称这个环境是<ins>部分可观测的（partially observed）</ins>，这种情况也被称为<ins>部分可观测马尔可夫决策过程（partially observable Markov decision process, POMDP）</ins>。部分可观测马尔可夫决</p>
-<p>策过程可以用一个七元组描述：(<em>S, A, T, R, Ω, O, γ</em>)。其中 <em>S</em> 表示状态空间，为隐变量，<em>A</em> 为动作空间，<em>T</em>(s′|s, a) 为状态转移概率，<em>R</em> 为奖励函数，<em>Ω</em>(<em>o++|++s, a</em>) 为观测概率，<em>O</em> 为观测空间，<em>γ</em> 为折扣因子。</p>
-<h1>强化学习智能体</h1>
-<h2 id="组成成分">组成成分</h2>
-<p>对于一个强化学习智能体，也是<ins>马尔可夫决策过程（Markov decision process）</ins>，它可能有一个或多个如下的组成成分。</p>
-<h3 id="策略（policy）">策略（policy）</h3>
-<p>智能体会用策略来选取下一步的动作。策略可分为随机性策略和确定性策略。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>++随机性策略（stochastic policy）++也是概率函数，即输入一个状态后输出一个概率，智能体根据该动作概率采取动作。</p>
-</li>
-<li class="lvl-2">
-<p>++确定性策略（deterministic policy）++是智能体直接采取最有可能的动作。</p>
-</li>
-</ul>
-<p>通常情况下，强化学习一般使用随机性策略，随机性策略有很多优点，其具有多样性，能够更好地探索环境。</p>
-<h3 id="价值函数（value-function）">价值函数（value function）</h3>
-<p>用于评估智能体进入某个状态后，可以对后面的奖励带来多大的影响。价值函数值越大，说明智能体进入这个状态越有利。价值函数里面有一个<ins>折扣因子（discount factor）</ins>，折扣因子越大，越关注未来对现在的影响。常用的价值函数是Q函数，Q 函数里面包含状态和动作两个变量，即未来可以获得奖励的期望取决于当前的状态和当前的动作。</p>
-<h3 id="模型（model）">模型（model）</h3>
-<p>模型表示智能体对环境的状态进行理解，它决定了环境中世界的运行方式。它由状态转移概率和奖励函数两个部分组成</p>
-<h2 id="强化学习智能体的类型">强化学习智能体的类型</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>++基于价值的智能体（value-based agent）++显式地学习价值函数，隐式地学习它的策略。策略是其从学到的价值函数里面推算出来的。</p>
-</li>
-<li class="lvl-2">
-<p>++基于策略的智能体（policy-based agent）++直接学习策略，我们给它一个状态，它就会输出对应动作的概率。基于策略的智能体并没有学习价值函数。</p>
-</li>
-<li class="lvl-2">
-<p>++演员-评论员智能体（actor-critic agent）++把策略和价值函数都学习了，然后通过两者的交互得到最佳动作。</p>
-</li>
-</ul>
-<h3 id="基于策略和基于价值的强化学习方法有什么区别">基于策略和基于价值的强化学习方法有什么区别?</h3>
-<p>在基于策略的强化学习方法中，智能体会制定一套动作策略（确定在给定状态下需要采取何种动作），并根据这个策略进行操作。强化学习算法直接对策略进行优化，使制定的策略能够获得最大的奖励。而在基于价值的强化学习方法中，智能体不需要制定显式的策略，它维护一个价值表格或价值函数，并通过这个价值表格或价值函数来选取价值最大的动作。基于价值迭代的方法只能应用在不连续的、离散的环境下（如围棋或某些游戏领域），对于动作集合规模庞大、动作连续的场景（如机器人控制领域），其很难学习到较好的结果（此时基于策略迭代的方法能够根据设定的策略来选择连续的动作）。基于价值的强化学习算法有 Q 学习（Q-learning）、Sarsa等，而基于策略的强化学习算法有策略梯度（Policy Gradient，PG）算法等。</p>
-<h3 id="有模型强化学习和免模型强化学习有什么区别？">有模型强化学习和免模型强化学习有什么区别？</h3>
-<p>有模型强化学习是指根据环境中的经验，构建一个虚拟世界，同时在真实环境和虚拟世界中学习；免模型强化学习是指不对环境进行建模，直接与真实环境进行交互来学习到最优策略。</p>
-<p>免模型强化学习通常属于数据驱动型方法，需要大量的采样来估计状态、动作及奖励函数，从而优化动作策略。相比之下，有模型的深度强化学习可以在一定程度上缓解训练数据匮乏的问题，因为智能体可以在虚拟世界中进行训练。免模型学习的泛化性要优于有模型强化学习，原因是有模型强化学习算需要对真实环境进行建模，并且虚拟世界与真实环境之间可能还有差异，这限制了有模型强化学习算法的泛化性。</p>
-<p>目前，大部分深度强化学习方法都采用了免模型强化学习，这是因为：免模型强化学习更为简单、直观且有丰富的开源资料</p>
-<blockquote>
-<p>第一章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1_questions&amp;keywords</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《Easy RL:强化学习教程》读书笔记02</title>
     <url>/post/9f16004e.html</url>
     <content><![CDATA[<h1>策略迭代</h1>
@@ -103,42 +42,6 @@
 <blockquote>
 <p>第二章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter2/chapter2_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter2/chapter2_questions&amp;keywords</a></p>
 <p>第三章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter3/chapter3_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter3/chapter3_questions&amp;keywords</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《Easy RL:强化学习教程》读书笔记03</title>
-    <url>/post/e81130d8.html</url>
-    <content><![CDATA[<h1>策略梯度算法</h1>
-<p>在强化学习中，我们唯一需要做的就是调整演员里面的策略，使得演员可以得到最大的奖励。演员里面的策略决定了演员的动作，即给定一个输入，它会输出演员现在应该要执行的动作。策略一般记作π。假设我们使用深度学习来做强化学习，策略就是一个网络。网络里面有一些参数，我们用 θ来代表π的参数。网络的输入是智能体看到的东西，如果让智能体玩视频游戏，智能体看到的东西就是游戏的画面。智能体看到的东西会影响我们训练的效果。例如，在玩游戏的时候， 也许我们觉得游戏的画面是前后相关的，所以应该让策略去看从游戏开始到当前这个时间点之间所有画面的总和。因此我们可能会觉得要用到循环神经网络（recurrent neural network，RNN）来处理它，不过这样会比较难处理。我们可以用向量或矩阵来表示智能体的观测，并将观测输入策略网络，策略网络就会输出智能体要采取的动作。因为我们要让奖励越大越好，所以可以使用++梯度上升（gradient ascent）<ins>来最大化期望奖励。一般</ins>策略梯度（policy gradient，PG）++采样的数据只会用一次。我们采样这些数据，然后用这些数据更新参数，再丢掉这些数据。接着重新采样数据，才能去更新参数。</p>
-<h1>策略梯度实现技巧</h1>
-<h2 id="技巧-1：添加基线">技巧 1：添加基线</h2>
-<p>第一个技巧：添加基线（baseline）。如果给定状态 s采取动作 a，整场游戏得到正的奖励，就要增加 (s,a)的概率。如果给定状态 s执行动作 a，整场游戏得到负的奖励，就要减小 (s,a)的概率。但在很多游戏里面，奖励总是正的，最低都是 0。比如打乒乓球游戏， 分数为 0 ~ 21 分，所以R(τ)总是正的。</p>
-<p>为了解决奖励总是正的的问题，我们可以把奖励减 b，其中，b称为基线。通过这种方法，我们就可以让 R(τ)−b 这一项有正有负。如果我们得到的总奖励R(τ)&gt;b，就让(s,a) 的概率上升。如果R(τ)&lt;b，就算R(τ)是正的，值很小也是不好的，我们就让(s,a)的概率下降，让这个状态采取这个动作的分数下降。b怎么设置呢？我们可以对 τ的值取期望， 计算τ的平均值，令b≈E[R(τ)]。 所以在训练的时候，我们会不断地把 R(τ) 的值记录下来，会不断地计算R(τ) 的平均值，把这个平均值当作 b来使用。 这样就可以让我们在训练的时候，R(τ)−b 是有正有负的，这是第一个技巧。</p>
-<h2 id="技巧-2：分配合适的分数">技巧 2：分配合适的分数</h2>
-<p>给每一个动作分配合适的分数（credit）。如果在同一个回合里面，在同一场游戏里面，所有的状态-动作对使用同样的奖励项进行加权，那这样显然是不公平的，因为在同一场游戏里面，也许有些动作是好的，有些动作是不好的。</p>
-<p>一个做法是计算某个状态-动作对的奖励的时候，不把整场游戏得到的奖励全部加起来，只计算从这个动作执行以后得到的奖励。因为这场游戏在执行这个动作之前发生的事情是与执行这个动作是没有关系的，所以在执行这个动作之前得到的奖励都不能算是这个动作的贡献。我们把执行这个动作以后发生的所有奖励加起来，才是这个动作真正的贡献。</p>
-<p>接下来更进一步，我们把未来的奖励做一个折扣，为什么要把未来的奖励做一个折扣呢？因为虽然在某一时刻，执行某一个动作，会影响接下来所有的结果（有可能在某一时刻执行的动作，接下来得到的奖励都是这个动作的功劳），但在一般的情况下，时间拖得越长，该动作的影响力就越小。 比如在第2个时刻执行某一个动作， 那在第3个时刻得到的奖励可能是在第2个时刻执行某个动作的功劳，但是在第 100 个时刻之后又得到奖励，那可能就不是在第2个时刻执行某一个动作的功劳。</p>
-<h2 id="综合以上技巧">综合以上技巧</h2>
-<p>实际上就是这么实现的。b可以是依赖状态（state-dependent）的，事实上 b通常是一个网络估计出来的，它是一个网络的输出。我们把 R-b这一项称为<ins>优势函数（advantage function）</ins>。优势函数取决于 s和 a，我们就是要计算在某个状态 s 采取某个动作 a 的时候，优势函数的值。优势函数的意义是，假设我们在某一个状态s_t 执行某一个动作 a_t，相较于其他可能的动作，a_t有多好。优势函数在意的不是绝对的好，而是相对的好，即<ins>相对优势（relative advantage）</ins>。因为在优势函数中，我们会减去一个基线 b，所以这个动作是相对的好，不是绝对的好。 优势函数通常可以由一个网络估计出来，这个网络称为评论员（critic）。</p>
-<h1>on-policy 和 off-policy 的区别</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>如果要学习的 agent 跟和环境互动的 agent 是同一个的话， 这个叫做<ins>on-policy(同策略)</ins>。</p>
-</li>
-<li class="lvl-2">
-<p>如果要学习的 agent 跟和环境互动的 agent 不是同一个的话， 那这个叫做<ins>off-policy(异策略)</ins>。</p>
-</li>
-</ul>
-<h1>重要性采样(Importance Sampling，IS)</h1>
-<p>对于ー个随机变量，通常用概率密度函数来刻画该变量的概率分布特性。具体来说，给定随机变量的一个取值，可以根据概率密度函数来计算该值对应的概率（密度）。反过来，也可以根据概率密度函数提供的概率分布信息来生成随机变量的一个取值，这就是采样。因此，从某种意义上来说，采样是概率密度函数的逆向应用。与根据概率密度函数计算样本点对应的概率值不同，采样过程往往没有那么直接，通常需要根据待采样分布的具体特点来选择合适的采样策略。</p>
-<p><ins>重要性采样有一些问题。<ins>虽然理论上你可以把 p 换成任何的 q。但是在实现上，p 和 q 不能差太多。差太多的话，会有一些问题。所以需要使用</ins>Proximal Policy Optimization (PPO)<ins>来约束p和q所输出的动作的</ins>KL 散度(KL divergence)</ins></p>
-<blockquote>
-<p>第四章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter4/chapter4_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter4/chapter4_questions&amp;keywords</a></p>
-<p>第五章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter5/chapter5_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter5/chapter5_questions&amp;keywords</a></p>
 </blockquote>
 ]]></content>
       <tags>
@@ -222,34 +125,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《Easy RL:强化学习教程》读书笔记05</title>
-    <url>/post/17295ed.html</url>
-    <content><![CDATA[<h1>DDPG的改进</h1>
-<p>虽然 DDPG 有时表现很好，但它对于超参数和其他类型的调整方面经常很敏感。DDPG 常见的问题是已经学习好的 Q 函数开始显著地高估 Q 值，然后导致策略被破坏，因为它利用了 Q 函数中的误差  。我们可以使用实际的 Q 值与 Q 网络输出的 Q 值进行对比。实际的 Q 值可以用蒙特卡洛来算。根据当前的策略采样 1000 条轨迹，得到 G 后取平均值，进而得到实际的 Q 值。</p>
-<p>双延迟深度确定性策略梯度（twin delayed DDPG， TD3） 通过引入 3 个关键技巧来解决这个问题。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>截断的双 Q 学习（clipped dobule Q-learning）。 TD3 学习两个 Q 函数（因此名字中有“twin”）。TD3 通过最小化均方差来同时学习两个 Q 函数。两个 Q 函数都使用一个目标。</p>
-</li>
-<li class="lvl-2">
-<p>延迟的策略更新（delayed policy updates） 。相关实验结果表明，同步训练动作网络和评价网络，却不使用目标网络，会导致训练过程不稳定；但是仅固定动作网络时，评价网络往往能够收敛到正确的结果。因此 TD3 算法以较低的频率更新动作网络，以较高的频率更新评价网络，通常每更新两次评价网络就更新一次策略。</p>
-</li>
-<li class="lvl-2">
-<p>目标策略平滑（target policy smoothing）。 TD3 引入了平滑化（smoothing）思想。 TD3 在目标动作中加入噪声，通过平滑 Q 沿动作的变化，使策略更难利用 Q 函数的误差。</p>
-</li>
-</ul>
-<p>这 3 个技巧加在一起，使得性能相比基线 DDPG 有了大幅的提升。</p>
-<blockquote>
-<p>第十章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords</a></p>
-<p>第十一章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords</a></p>
-<p>第十二章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>大学本科经验分享</title>
     <url>/post/3610a686.html</url>
     <content><![CDATA[<h1>个人档案</h1>
@@ -292,6 +167,70 @@
 </div>]]></content>
       <tags>
         <tag>经验分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Easy RL:强化学习教程》读书笔记03</title>
+    <url>/post/e81130d8.html</url>
+    <content><![CDATA[<h1>策略梯度算法</h1>
+<p>在强化学习中，我们唯一需要做的就是调整演员里面的策略，使得演员可以得到最大的奖励。演员里面的策略决定了演员的动作，即给定一个输入，它会输出演员现在应该要执行的动作。策略一般记作π。假设我们使用深度学习来做强化学习，策略就是一个网络。网络里面有一些参数，我们用 θ来代表π的参数。网络的输入是智能体看到的东西，如果让智能体玩视频游戏，智能体看到的东西就是游戏的画面。智能体看到的东西会影响我们训练的效果。例如，在玩游戏的时候， 也许我们觉得游戏的画面是前后相关的，所以应该让策略去看从游戏开始到当前这个时间点之间所有画面的总和。因此我们可能会觉得要用到循环神经网络（recurrent neural network，RNN）来处理它，不过这样会比较难处理。我们可以用向量或矩阵来表示智能体的观测，并将观测输入策略网络，策略网络就会输出智能体要采取的动作。因为我们要让奖励越大越好，所以可以使用++梯度上升（gradient ascent）<ins>来最大化期望奖励。一般</ins>策略梯度（policy gradient，PG）++采样的数据只会用一次。我们采样这些数据，然后用这些数据更新参数，再丢掉这些数据。接着重新采样数据，才能去更新参数。</p>
+<h1>策略梯度实现技巧</h1>
+<h2 id="技巧-1：添加基线">技巧 1：添加基线</h2>
+<p>第一个技巧：添加基线（baseline）。如果给定状态 s采取动作 a，整场游戏得到正的奖励，就要增加 (s,a)的概率。如果给定状态 s执行动作 a，整场游戏得到负的奖励，就要减小 (s,a)的概率。但在很多游戏里面，奖励总是正的，最低都是 0。比如打乒乓球游戏， 分数为 0 ~ 21 分，所以R(τ)总是正的。</p>
+<p>为了解决奖励总是正的的问题，我们可以把奖励减 b，其中，b称为基线。通过这种方法，我们就可以让 R(τ)−b 这一项有正有负。如果我们得到的总奖励R(τ)&gt;b，就让(s,a) 的概率上升。如果R(τ)&lt;b，就算R(τ)是正的，值很小也是不好的，我们就让(s,a)的概率下降，让这个状态采取这个动作的分数下降。b怎么设置呢？我们可以对 τ的值取期望， 计算τ的平均值，令b≈E[R(τ)]。 所以在训练的时候，我们会不断地把 R(τ) 的值记录下来，会不断地计算R(τ) 的平均值，把这个平均值当作 b来使用。 这样就可以让我们在训练的时候，R(τ)−b 是有正有负的，这是第一个技巧。</p>
+<h2 id="技巧-2：分配合适的分数">技巧 2：分配合适的分数</h2>
+<p>给每一个动作分配合适的分数（credit）。如果在同一个回合里面，在同一场游戏里面，所有的状态-动作对使用同样的奖励项进行加权，那这样显然是不公平的，因为在同一场游戏里面，也许有些动作是好的，有些动作是不好的。</p>
+<p>一个做法是计算某个状态-动作对的奖励的时候，不把整场游戏得到的奖励全部加起来，只计算从这个动作执行以后得到的奖励。因为这场游戏在执行这个动作之前发生的事情是与执行这个动作是没有关系的，所以在执行这个动作之前得到的奖励都不能算是这个动作的贡献。我们把执行这个动作以后发生的所有奖励加起来，才是这个动作真正的贡献。</p>
+<p>接下来更进一步，我们把未来的奖励做一个折扣，为什么要把未来的奖励做一个折扣呢？因为虽然在某一时刻，执行某一个动作，会影响接下来所有的结果（有可能在某一时刻执行的动作，接下来得到的奖励都是这个动作的功劳），但在一般的情况下，时间拖得越长，该动作的影响力就越小。 比如在第2个时刻执行某一个动作， 那在第3个时刻得到的奖励可能是在第2个时刻执行某个动作的功劳，但是在第 100 个时刻之后又得到奖励，那可能就不是在第2个时刻执行某一个动作的功劳。</p>
+<h2 id="综合以上技巧">综合以上技巧</h2>
+<p>实际上就是这么实现的。b可以是依赖状态（state-dependent）的，事实上 b通常是一个网络估计出来的，它是一个网络的输出。我们把 R-b这一项称为<ins>优势函数（advantage function）</ins>。优势函数取决于 s和 a，我们就是要计算在某个状态 s 采取某个动作 a 的时候，优势函数的值。优势函数的意义是，假设我们在某一个状态s_t 执行某一个动作 a_t，相较于其他可能的动作，a_t有多好。优势函数在意的不是绝对的好，而是相对的好，即<ins>相对优势（relative advantage）</ins>。因为在优势函数中，我们会减去一个基线 b，所以这个动作是相对的好，不是绝对的好。 优势函数通常可以由一个网络估计出来，这个网络称为评论员（critic）。</p>
+<h1>on-policy 和 off-policy 的区别</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果要学习的 agent 跟和环境互动的 agent 是同一个的话， 这个叫做<ins>on-policy(同策略)</ins>。</p>
+</li>
+<li class="lvl-2">
+<p>如果要学习的 agent 跟和环境互动的 agent 不是同一个的话， 那这个叫做<ins>off-policy(异策略)</ins>。</p>
+</li>
+</ul>
+<h1>重要性采样(Importance Sampling，IS)</h1>
+<p>对于ー个随机变量，通常用概率密度函数来刻画该变量的概率分布特性。具体来说，给定随机变量的一个取值，可以根据概率密度函数来计算该值对应的概率（密度）。反过来，也可以根据概率密度函数提供的概率分布信息来生成随机变量的一个取值，这就是采样。因此，从某种意义上来说，采样是概率密度函数的逆向应用。与根据概率密度函数计算样本点对应的概率值不同，采样过程往往没有那么直接，通常需要根据待采样分布的具体特点来选择合适的采样策略。</p>
+<p><ins>重要性采样有一些问题。<ins>虽然理论上你可以把 p 换成任何的 q。但是在实现上，p 和 q 不能差太多。差太多的话，会有一些问题。所以需要使用</ins>Proximal Policy Optimization (PPO)<ins>来约束p和q所输出的动作的</ins>KL 散度(KL divergence)</ins></p>
+<blockquote>
+<p>第四章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter4/chapter4_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter4/chapter4_questions&amp;keywords</a></p>
+<p>第五章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter5/chapter5_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter5/chapter5_questions&amp;keywords</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Easy RL:强化学习教程》读书笔记05</title>
+    <url>/post/17295ed.html</url>
+    <content><![CDATA[<h1>DDPG的改进</h1>
+<p>虽然 DDPG 有时表现很好，但它对于超参数和其他类型的调整方面经常很敏感。DDPG 常见的问题是已经学习好的 Q 函数开始显著地高估 Q 值，然后导致策略被破坏，因为它利用了 Q 函数中的误差  。我们可以使用实际的 Q 值与 Q 网络输出的 Q 值进行对比。实际的 Q 值可以用蒙特卡洛来算。根据当前的策略采样 1000 条轨迹，得到 G 后取平均值，进而得到实际的 Q 值。</p>
+<p>双延迟深度确定性策略梯度（twin delayed DDPG， TD3） 通过引入 3 个关键技巧来解决这个问题。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>截断的双 Q 学习（clipped dobule Q-learning）。 TD3 学习两个 Q 函数（因此名字中有“twin”）。TD3 通过最小化均方差来同时学习两个 Q 函数。两个 Q 函数都使用一个目标。</p>
+</li>
+<li class="lvl-2">
+<p>延迟的策略更新（delayed policy updates） 。相关实验结果表明，同步训练动作网络和评价网络，却不使用目标网络，会导致训练过程不稳定；但是仅固定动作网络时，评价网络往往能够收敛到正确的结果。因此 TD3 算法以较低的频率更新动作网络，以较高的频率更新评价网络，通常每更新两次评价网络就更新一次策略。</p>
+</li>
+<li class="lvl-2">
+<p>目标策略平滑（target policy smoothing）。 TD3 引入了平滑化（smoothing）思想。 TD3 在目标动作中加入噪声，通过平滑 Q 沿动作的变化，使策略更难利用 Q 函数的误差。</p>
+</li>
+</ul>
+<p>这 3 个技巧加在一起，使得性能相比基线 DDPG 有了大幅的提升。</p>
+<blockquote>
+<p>第十章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter10/chapter10_questions&amp;keywords</a></p>
+<p>第十一章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter11/chapter11_questions&amp;keywords</a></p>
+<p>第十二章习题：<a href="https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter12/chapter12_questions&amp;keywords</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -414,6 +353,67 @@
 ]]></content>
       <tags>
         <tag>经验分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Easy RL:强化学习教程》读书笔记01</title>
+    <url>/post/61f51f4.html</url>
+    <content><![CDATA[<h1>强化学习概述</h1>
+<p>强化学习由<ins>智能体（agent）<ins>和</ins>环境（environment）<ins>组成，智能体得到环境中的</ins>状态（state）<ins>后，将根据状态输出一个</ins>动作（action）</ins>，这个动作也是<ins>决策（decision）</ins>，这个动作会在环境中被执行后输出状态和<ins>奖励（reward</ins>），智能体的目标是最大化所获得的奖励。</p>
+<h2 id="强化学习和监督学习的区别">强化学习和监督学习的区别</h2>
+<p>1、强化学习输入的样本是序列数据，监督学习的样本的独立同分布的。</p>
+<p>2、强化学习只能通过不停地尝试去做出最有利的动作，而监督学习是有人类知识引导的。</p>
+<p>3、<ins>探索（exploration）<ins>和</ins>利用（exploitation）<ins>是强化学习里面非常核心的问题，<ins>探索</ins>是尝试新动作以获得更高的奖励，但有一定的风险，而</ins>利用</ins>是采取已知的可获最大奖励的动作，所以需要在<ins>探索</ins>和<ins>利用</ins>间进行权衡，这是监督学习中没有的。</p>
+<p>4、强化学习中的奖励一般是延迟的，而监督学习是即时的监督。</p>
+<h2 id="标准强化学习和深度强化学习的区别">标准强化学习和深度强化学习的区别</h2>
+<p><ins>标准强化学习</ins>需要设计特征、进行特征工程并设计价值函数，而<ins>深度强化学习</ins>是一个端到端的训练过程，可直接通过神经网络来拟合价值函数或策略网络。</p>
+<p><img src="https://mgt-1301264585.cos.ap-guangzhou.myqcloud.com/img/image-20220816210507041.png" alt="image-20220816210507041"></p>
+<h2 id="状态和观测的区别">状态和观测的区别</h2>
+<p><ins>状态</ins>是对世界的完整描述，不会隐藏世界的信息。<ins>观测</ins>是对状态的部分描述，可能会遗漏一些信</p>
+<p>息。如果状态和观察等价，则该环境是完全可观测的（fully observed），这种情况也被称为<ins>马尔可夫决策过程（Markov decision process，MDP）</ins>。当智能体只能看到部分的观测时，我们就称这个环境是<ins>部分可观测的（partially observed）</ins>，这种情况也被称为<ins>部分可观测马尔可夫决策过程（partially observable Markov decision process, POMDP）</ins>。部分可观测马尔可夫决</p>
+<p>策过程可以用一个七元组描述：(<em>S, A, T, R, Ω, O, γ</em>)。其中 <em>S</em> 表示状态空间，为隐变量，<em>A</em> 为动作空间，<em>T</em>(s′|s, a) 为状态转移概率，<em>R</em> 为奖励函数，<em>Ω</em>(<em>o++|++s, a</em>) 为观测概率，<em>O</em> 为观测空间，<em>γ</em> 为折扣因子。</p>
+<h1>强化学习智能体</h1>
+<h2 id="组成成分">组成成分</h2>
+<p>对于一个强化学习智能体，也是<ins>马尔可夫决策过程（Markov decision process）</ins>，它可能有一个或多个如下的组成成分。</p>
+<h3 id="策略（policy）">策略（policy）</h3>
+<p>智能体会用策略来选取下一步的动作。策略可分为随机性策略和确定性策略。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>++随机性策略（stochastic policy）++也是概率函数，即输入一个状态后输出一个概率，智能体根据该动作概率采取动作。</p>
+</li>
+<li class="lvl-2">
+<p>++确定性策略（deterministic policy）++是智能体直接采取最有可能的动作。</p>
+</li>
+</ul>
+<p>通常情况下，强化学习一般使用随机性策略，随机性策略有很多优点，其具有多样性，能够更好地探索环境。</p>
+<h3 id="价值函数（value-function）">价值函数（value function）</h3>
+<p>用于评估智能体进入某个状态后，可以对后面的奖励带来多大的影响。价值函数值越大，说明智能体进入这个状态越有利。价值函数里面有一个<ins>折扣因子（discount factor）</ins>，折扣因子越大，越关注未来对现在的影响。常用的价值函数是Q函数，Q 函数里面包含状态和动作两个变量，即未来可以获得奖励的期望取决于当前的状态和当前的动作。</p>
+<h3 id="模型（model）">模型（model）</h3>
+<p>模型表示智能体对环境的状态进行理解，它决定了环境中世界的运行方式。它由状态转移概率和奖励函数两个部分组成</p>
+<h2 id="强化学习智能体的类型">强化学习智能体的类型</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>++基于价值的智能体（value-based agent）++显式地学习价值函数，隐式地学习它的策略。策略是其从学到的价值函数里面推算出来的。</p>
+</li>
+<li class="lvl-2">
+<p>++基于策略的智能体（policy-based agent）++直接学习策略，我们给它一个状态，它就会输出对应动作的概率。基于策略的智能体并没有学习价值函数。</p>
+</li>
+<li class="lvl-2">
+<p>++演员-评论员智能体（actor-critic agent）++把策略和价值函数都学习了，然后通过两者的交互得到最佳动作。</p>
+</li>
+</ul>
+<h3 id="基于策略和基于价值的强化学习方法有什么区别">基于策略和基于价值的强化学习方法有什么区别?</h3>
+<p>在基于策略的强化学习方法中，智能体会制定一套动作策略（确定在给定状态下需要采取何种动作），并根据这个策略进行操作。强化学习算法直接对策略进行优化，使制定的策略能够获得最大的奖励。而在基于价值的强化学习方法中，智能体不需要制定显式的策略，它维护一个价值表格或价值函数，并通过这个价值表格或价值函数来选取价值最大的动作。基于价值迭代的方法只能应用在不连续的、离散的环境下（如围棋或某些游戏领域），对于动作集合规模庞大、动作连续的场景（如机器人控制领域），其很难学习到较好的结果（此时基于策略迭代的方法能够根据设定的策略来选择连续的动作）。基于价值的强化学习算法有 Q 学习（Q-learning）、Sarsa等，而基于策略的强化学习算法有策略梯度（Policy Gradient，PG）算法等。</p>
+<h3 id="有模型强化学习和免模型强化学习有什么区别？">有模型强化学习和免模型强化学习有什么区别？</h3>
+<p>有模型强化学习是指根据环境中的经验，构建一个虚拟世界，同时在真实环境和虚拟世界中学习；免模型强化学习是指不对环境进行建模，直接与真实环境进行交互来学习到最优策略。</p>
+<p>免模型强化学习通常属于数据驱动型方法，需要大量的采样来估计状态、动作及奖励函数，从而优化动作策略。相比之下，有模型的深度强化学习可以在一定程度上缓解训练数据匮乏的问题，因为智能体可以在虚拟世界中进行训练。免模型学习的泛化性要优于有模型强化学习，原因是有模型强化学习算需要对真实环境进行建模，并且虚拟世界与真实环境之间可能还有差异，这限制了有模型强化学习算法的泛化性。</p>
+<p>目前，大部分深度强化学习方法都采用了免模型强化学习，这是因为：免模型强化学习更为简单、直观且有丰富的开源资料</p>
+<blockquote>
+<p>第一章习题链接：<a href="https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1_questions&amp;keywords">https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1_questions&amp;keywords</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
